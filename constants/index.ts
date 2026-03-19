@@ -1,4 +1,4 @@
-import { LucideIcon, Star, UserRound } from "lucide-react";
+import { Heart, LucideIcon, UserRound } from "lucide-react";
 
 export const navLinks: Array<{ label: string; path: string; icon?: LucideIcon }> = [
     {
@@ -9,6 +9,6 @@ export const navLinks: Array<{ label: string; path: string; icon?: LucideIcon }>
     {
         label: 'Favorites',
         path: '/favorites',
-        icon: Star
+        icon: Heart
     }
 ];
