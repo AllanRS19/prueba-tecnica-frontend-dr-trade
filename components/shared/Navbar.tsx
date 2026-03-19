@@ -13,7 +13,7 @@ const Navbar = () => {
     return (
         <header>
             <div className="header-container justify-between">
-                <Link href={pathname === '/' ? '#' : '/'} className="logo">
+                <Link href='/' className="logo">
                     Rick
                     <span>&</span>
                     Morty API
