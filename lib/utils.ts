@@ -54,6 +54,8 @@ export const getFavorites = (): number[] => {
 export const toggleFavorite = (id: number): number[] => {
     const favorites = getFavorites();
 
+    console.log(id);
+
     let updated: number[];
 
     if (favorites.includes(id)) {
