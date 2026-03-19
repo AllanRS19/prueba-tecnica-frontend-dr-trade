@@ -1,9 +1,10 @@
 'use client';
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { navLinks } from "@/constants";
+import { cn } from "@/lib/utils";
+import MobileNav from "./MobileNav";
 
 const Navbar = () => {
 
@@ -11,24 +12,27 @@ const Navbar = () => {
 
     return (
         <header>
-            <div className="header-container">
-                <Link href="/">
-                    <Image
-                        src="/logo.svg"
-                        alt="Rick and Morty Logo"
-                        width={132}
-                        height={132}
-                    />
-                    <h2 className="">Rick and Morty API</h2>
+            <div className="header-container justify-between">
+                <Link href={pathname === '/' ? '#' : '/'} className="logo">
+                    Rick
+                    <span>&</span>
+                    Morty API
                 </Link>
 
-                <nav className="navbar">
-                    {navLinks.map(({ label, path }) => (
-                        <Link key={label} href={path} className={}>
+                <nav className="max-md:hidden">
+                    {navLinks.map(({ label, path, icon: Icon }) => (
+                        <Link href={path} key={label} className={cn('nav-link', {
+                            'is-active': pathname === path
+                        })}>
+                            {Icon && <Icon className="size-4" />}
                             {label}
                         </Link>
                     ))}
                 </nav>
+
+                <div className="md:hidden">
+                    <MobileNav />
+                </div>
             </div>
         </header>
     )
