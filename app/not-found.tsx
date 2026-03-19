@@ -18,7 +18,7 @@ export default function NotFound() {
 
                 <Link
                     href="/"
-                    className="go-home-link"
+                    className="action-button go-home-link"
                 >
                     Back to homepage
                 </Link>

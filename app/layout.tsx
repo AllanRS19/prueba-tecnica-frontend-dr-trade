@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { Toaster } from "sileo";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -25,6 +26,12 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {children}
+        <Toaster
+          position="top-center"
+          options={{
+            fill: "bg-green-600!"
+          }}
+        />
       </body>
     </html>
   );

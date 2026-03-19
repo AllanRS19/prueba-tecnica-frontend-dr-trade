@@ -172,6 +172,18 @@
     }
   }
 
+  .action-button {
+    @apply inline-block cursor-pointer text-sm lg:text-base px-6 py-3 text-black! hover:opacity-40 font-bold rounded-lg transition-all duration-300;
+  }
+
+  .action-button.danger {
+    @apply bg-red-500/75!;
+  }
+
+  .go-home-link {
+    @apply mt-8 bg-green-500 hover:bg-green-400 hover:opacity-40;
+  }
+
   .home-container {
     @apply w-full! h-full py-6 px-6 md:px-16!;
   }
@@ -248,10 +260,6 @@
   /* Not Found page styles */
   .not-found-container {
     @apply relative flex min-h-screen flex-col items-center justify-center text-white overflow-hidden;
-
-    .go-home-link {
-      @apply inline-block mt-8 px-6 py-3 bg-green-500 hover:bg-green-400 hover:opacity-40 text-black font-bold rounded-lg transition-all duration-300;
-    }
   }
 
   /* Header styles */
@@ -285,6 +293,25 @@
     @apply px-4 py-3 flex items-center gap-4 transition-all rounded-sm text-base! font-medium text-[rgba(255,255,255,0.6)] cursor-pointer uppercase hover:text-white bg-gray-600/10 hover:bg-gray-600/10;
   }
 
-  /* Home Page styles */
+  /* Character Details Page styles */
+  .character-page-container {
+    @apply w-full min-h-[calc(100vh-80px)] grid md:grid-cols-2 px-6 md:px-16 py-6 bg-blue-950/10;
+
+    .character-image-side {
+      @apply size-full flex flex-col items-center justify-center gap-6;
+
+      .character-specie {
+        @apply border-2 border-green-400 rounded-md py-1 px-6;
+
+        p {
+          @apply text-lg font-semibold;
+        }
+      }
+    }
+
+    .character-info-side {
+      @apply flex flex-col gap-8 p-8 md:p-14;
+    }
+  }
 
 }
