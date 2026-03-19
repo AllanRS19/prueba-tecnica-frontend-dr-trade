@@ -17,10 +17,22 @@ export async function fetcher<T>(
 
     const response = await fetch(url, { next: { revalidate } });
 
+    // console.log(response);
+
     if (!response.ok) {
         const errorBody = await response.json().catch((err) => err);
 
-        throw new Error(`API Error: ${response.status}: ${errorBody.error || response.statusText}`);
+        if (errorBody.error !== "There is nothing here.") {
+
+            if (response.status === 404 && endpoint.startsWith('/character/')) {
+                return {} as T;
+            } else {
+                return { info: undefined, results: [] } as T;
+            }
+
+        }
+
+        throw new Error(`API Error: ${response.status}: ${errorBody?.error || response.statusText}`);
     }
 
     return response.json();

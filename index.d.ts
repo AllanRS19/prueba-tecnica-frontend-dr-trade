@@ -42,6 +42,7 @@ interface NoResultsProps {
     description: string;
     redirectTo?: string;
     redirectText?: string;
+    children?: React.ReactNode;
 }
 
 interface CharactersPaginationProps {

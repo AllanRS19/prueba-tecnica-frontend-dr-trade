@@ -3,6 +3,7 @@ import Image from "next/image";
 import ToggleFavoriteButton from "@/components/ToggleFavoriteButton";
 import { fetcher } from "@/lib/api";
 import { ArrowLeft } from "lucide-react";
+import NoResults from "@/components/NoResults";
 
 const CharacterPage = async ({
     params
@@ -10,10 +11,23 @@ const CharacterPage = async ({
     params: Promise<{ id: string }>
 }) => {
 
-
     const id = Number((await params).id);
 
-    const { name, image, origin, species, status } = await fetcher<Character>(`/character/${id}`);
+    const character = await fetcher<Character>(`/character/${id}`);
+
+    if (!character || !character.id) {
+        return (
+            <NoResults
+                icon="/icons/no-results.png"
+                title="Oops, looks like we were unable to find any results"
+                description="Try searching using another words"
+                redirectText="Go back to homepage"
+                redirectTo="/"
+            />
+        );
+    }
+
+    const { name, image, species, origin, status } = character;
 
     return (
         <section className="character-page-container">
@@ -41,10 +55,8 @@ const CharacterPage = async ({
 
                 <div className="flex flex-col gap-6">
 
-                    {/* DATA TABLE */}
                     <div className="border-2 border-white">
 
-                        {/* Row 1 */}
                         <div className="grid grid-cols-2 border-b-2 border-white">
                             <div className="p-4 border-r-2 border-white space-y-2">
                                 <h3 className="text-base text-purple-400">Status</h3>
@@ -56,7 +68,6 @@ const CharacterPage = async ({
                             </div>
                         </div>
 
-                        {/* Row 3 */}
                         <div>
                             <div className="p-4 space-y-2">
                                 <h3 className="text-base text-purple-400">Origin</h3>

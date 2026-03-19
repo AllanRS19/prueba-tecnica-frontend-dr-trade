@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const FetchError = ({ title, description, icon, redirectTo, redirectText }: NoResultsProps) => {
+const FetchError = ({ title, description, icon, redirectTo, redirectText, children }: NoResultsProps) => {
     return (
         <div className="no-results">
             <div className="no-results-info">
@@ -22,6 +22,7 @@ const FetchError = ({ title, description, icon, redirectTo, redirectText }: NoRe
                         {redirectText}
                     </Link>
                 )}
+                {children && children}
             </div>
         </div>
     )

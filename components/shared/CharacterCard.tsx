@@ -25,7 +25,14 @@ const CharacterCard = ({
                 </div>
             )}
             <Link href={`/character/${id}`}>
-                <Image src={image} alt={name} width={290} height={160} className="character-image" />
+                <Image
+                    src={image}
+                    alt={name}
+                    width={290}
+                    height={160}
+                    className="character-image"
+                    loading="lazy"
+                />
                 <div className="character-card-body">
                     <div className="w-full flex items-center">
                         <p className="text-base font-semibold">{name}</p>
