@@ -42,3 +42,32 @@ export const buildPageNumbers = (
 
     return pages;
 };
+
+export const getFavorites = (): number[] => {
+
+    if (typeof window === "undefined") return [];
+
+    const data = localStorage.getItem("favorites");
+    return data ? JSON.parse(data) : [];
+};
+
+export const toggleFavorite = (id: number): number[] => {
+    const favorites = getFavorites();
+
+    let updated: number[];
+
+    if (favorites.includes(id)) {
+        // remove
+        updated = favorites.filter((fav) => fav !== id);
+    } else {
+        // add
+        updated = [...favorites, id];
+    }
+
+    localStorage.setItem("favorites", JSON.stringify(updated));
+    return updated;
+};
+
+export const isFavorite = (id: number): boolean => {
+    return getFavorites().includes(id);
+};
