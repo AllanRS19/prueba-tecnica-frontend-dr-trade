@@ -7,10 +7,11 @@ import { ArrowLeft } from "lucide-react";
 const CharacterPage = async ({
     params
 }: {
-    params: Promise<{ id: number }>
+    params: Promise<{ id: string }>
 }) => {
 
-    const { id } = await params;
+
+    const id = Number((await params).id);
 
     const { name, image, origin, species, status } = await fetcher<Character>(`/character/${id}`);
 

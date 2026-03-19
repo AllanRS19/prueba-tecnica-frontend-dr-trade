@@ -5,8 +5,14 @@ import { Button } from "@/components/ui/button";
 import { toggleFavorite, isFavorite, cn } from "@/lib/utils";
 import { Heart, HeartOff } from "lucide-react";
 import { sileo } from "sileo";
+import { usePathname } from "next/navigation";
 
 const ToggleFavoriteButton = ({ id }: { id: number }) => {
+
+    const pathname = usePathname();
+
+    const isFavoritePage = pathname === '/favorites';
+
     const [favorite, setFavorite] = useState(false);
 
     useEffect(() => {
@@ -20,7 +26,7 @@ const ToggleFavoriteButton = ({ id }: { id: number }) => {
         }
         setFavorite(updated.includes(id));
 
-        sileo.success({title: `Character ${favorite ? "removed from" : "added to"} favorites`})
+        sileo.success({ title: `Character ${favorite ? "removed from" : "added to"} favorites` })
     };
 
     return (
@@ -30,10 +36,9 @@ const ToggleFavoriteButton = ({ id }: { id: number }) => {
                 "danger": favorite,
                 "regular": !favorite
             })}
-
         >
             {favorite ? <HeartOff /> : <Heart />}
-            {favorite ? "Remove from favorites" : "Add to favorites"}
+            {favorite ? `Remove ${!isFavoritePage ? 'from favorites' : ''}` : "Add to favorites"}
         </Button>
     );
 };

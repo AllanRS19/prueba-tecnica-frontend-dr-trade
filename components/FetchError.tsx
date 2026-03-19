@@ -1,15 +1,16 @@
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
-const NoResults = ({ title, description, icon, redirectTo, redirectText }: NoResultsProps) => {
+const FetchError = ({ title, description, icon, redirectTo, redirectText }: NoResultsProps) => {
     return (
         <div className="no-results">
             <div className="no-results-info">
-                <Image 
+                <Image
                     src={icon}
-                    alt="Not found"
+                    alt="Error fetching"
                     width={240}
                     height={240}
+                    className="max-sm:size-40"
                 />
                 <h1 className="text-2xl font-bold">{title}</h1>
                 <p className="text-lg text-muted-foreground">{description}</p>
@@ -26,4 +27,4 @@ const NoResults = ({ title, description, icon, redirectTo, redirectText }: NoRes
     )
 }
 
-export default NoResults;
+export default FetchError;

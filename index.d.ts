@@ -13,8 +13,8 @@ interface Character {
     episode: string[];
 }
 
-interface CharacterCardProps {
-    character: Character;
+interface CharacterCardProps extends Character {
+    isFavoritePage?: boolean;
 }
 
 interface Episode {
@@ -40,6 +40,8 @@ interface NoResultsProps {
     icon: string;
     title: string;
     description: string;
+    redirectTo?: string;
+    redirectText?: string;
 }
 
 interface CharactersPaginationProps {
