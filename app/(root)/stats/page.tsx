@@ -12,6 +12,7 @@ const StatsPage = async () => {
 
     const characters = await getAllCharacters();
 
+    // Gets the data that will be passed to the charts
     const statusData = getStatusData(characters);
     const speciesData = getSpeciesData(characters);
 
@@ -20,17 +21,17 @@ const StatsPage = async () => {
             <h1 className="text-3xl font-semibold">Statistics</h1>
 
             <div className="grid md:grid-cols-2 gap-6">
-                <ChartCard title="Character Status">
-                    <StatusPieChart data={statusData} />
-                </ChartCard>
+                <div className="min-w-0">
+                    <ChartCard title="Character Status">
+                        <StatusPieChart data={statusData} />
+                    </ChartCard>
+                </div>
 
-                <ChartCard title="Species Distribution">
-                    <SpeciesBarChart data={speciesData} />
-                </ChartCard>
-
-                {/* <ChartCard title="Gender Distribution">
-                    <StatusPieChart data={genderData} />
-                </ChartCard> */}
+                <div className="min-w-0">
+                    <ChartCard title="Species Distribution">
+                        <SpeciesBarChart data={speciesData} />
+                    </ChartCard>
+                </div>
             </div>
         </section>
     );

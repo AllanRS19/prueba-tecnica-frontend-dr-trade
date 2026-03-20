@@ -65,7 +65,7 @@ const FavoriteCharacters = () => {
 
     return (
         <div>
-            <h1 className="text-3xl font-semibold text-white">Favorites ({characters.length})</h1>
+            <h1 className="text-3xl font-semibold text-white">Favorites</h1>
             <section className="characters-grid">
                 {characters.map((character) => (
                     <CharacterCard

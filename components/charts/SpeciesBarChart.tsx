@@ -3,7 +3,6 @@
 import {
     Bar,
     BarChart,
-    ResponsiveContainer,
     XAxis,
 } from "recharts";
 
@@ -31,17 +30,15 @@ export function SpeciesBarChart({
     data: ChartDataItem[];
 }) {
     return (
-        <ResponsiveContainer>
-            <ChartContainer config={chartConfig} className="h-[300px] w-full">
-                <BarChart data={data}>
-                    <XAxis dataKey="name" />
+        <ChartContainer config={chartConfig} className="h-75 w-full">
+            <BarChart data={data}>
+                <XAxis dataKey="name" />
 
-                    <ChartTooltip content={<ChartTooltipContent />} />
+                <ChartTooltip content={<ChartTooltipContent />} />
 
-                    <Bar dataKey="value" fill="#8b5cf6" />
-                    
-                </BarChart>
-            </ChartContainer>
-        </ResponsiveContainer>
+                <Bar dataKey="value" fill="#8b5cf6" />
+
+            </BarChart>
+        </ChartContainer>
     );
 }

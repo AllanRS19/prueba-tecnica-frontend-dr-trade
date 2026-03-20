@@ -52,7 +52,6 @@ Decidí utilizar Next.js con App Router para desarrollar el proyecto, ya que bri
 
 * Renderizado en servidor (SSR)
 * Manejo eficiente de datos asincrónicos
-* Integración nativa con `fetch`
 
 Al momento de desarrollar el proyecto, haber utilizado Next.js me permitió tener:
 
@@ -111,20 +110,6 @@ Decidí hacerlo de esta manera, ya que entiendo que puede facilitar la escalabil
 
 ---
 
-### 6. Manejo de URLs del API
-
-Se evitó manipular URLs manualmente (`replace`) y se optó por:
-
-* Uso del objeto `URL`
-* Soporte para URLs completas
-
-Esto previene errores comunes como:
-
-* duplicación de query params
-* rutas inválidas
-
----
-
 ## ¿Qué cosas mejoraría con más tiempo?
 
 ### 1. Hacer que un favorito agregado desaparezca al momento de darle click a eliminar
@@ -134,7 +119,7 @@ Actualmente puedo eliminarlo correctamente, pero no refresca al instante la list
 Mejoraría:
 
 * Mejor experiencia de usuario
-* Mayor sensación de eliminación
+* Mayor sensación de acción realizada
 
 ---
 
@@ -147,21 +132,13 @@ Mejoraría:
 
 ### 3. Testing
 
-* Unit tests para transformaciones
+* Hacer pruebas unitarias para los componentes utilizados
 
 ---
 
-### 4. Optimización de datos
+### 4. Internacionalización (i18n)
 
-* Normalización de datos
-* Preprocesamiento en servidor
-* Posible uso de almacenamiento temporal (cache layer)
-
----
-
-### 5. Internacionalización (i18n)
-
-Soporte multi-idioma para mejorar accesibilidad del proyecto.
+Soporte multi-idioma para mejorar accesibilidad del proyecto, solo en inglés.
 
 ---
 

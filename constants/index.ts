@@ -1,6 +1,12 @@
 import { ChartColumn, Heart, LucideIcon, UserRound } from "lucide-react";
 
-export const navLinks: Array<{ label: string; path: string; icon?: LucideIcon }> = [
+interface NavLinksProps {
+    label: string;
+    path: string;
+    icon?: LucideIcon;
+}
+
+export const navLinks: NavLinksProps[] = [
     {
         label: 'Characters',
         path: '/',

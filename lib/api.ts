@@ -1,5 +1,7 @@
 import qs from "query-string";
 
+// Custom fetcher function
+// Takes the return type, endpoint and params
 export async function fetcher<T>(
     endpoint: string,
     params?: QueryParams,
@@ -16,8 +18,6 @@ export async function fetcher<T>(
     }, { skipEmptyString: true, skipNull: true });
 
     const response = await fetch(url, { next: { revalidate } });
-
-    // console.log(response);
 
     if (!response.ok) {
         const errorBody = await response.json().catch((err) => err);

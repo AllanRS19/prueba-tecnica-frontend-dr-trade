@@ -40,7 +40,3 @@ export function getStatusData(characters: Character[]) {
 export function getSpeciesData(characters: Character[]) {
     return getTopN(groupBy(characters, (c) => c.species));
 }
-
-export function getGenderData(characters: Character[]) {
-    return groupBy(characters, (c) => c.gender);
-}
