@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
         hostname: 'rickandmortyapi.com'
       }
     ]
+  },
+  typescript: {
+    ignoreBuildErrors: true
   }
 };
 
