@@ -4,8 +4,7 @@ import qs from "query-string";
 // Takes the return type, endpoint and params
 export async function fetcher<T>(
     endpoint: string,
-    params?: QueryParams,
-    revalidate = 60
+    params?: QueryParams
 ): Promise<T> {
 
     const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
@@ -17,7 +16,7 @@ export async function fetcher<T>(
         query: params
     }, { skipEmptyString: true, skipNull: true });
 
-    const response = await fetch(url, { next: { revalidate } });
+    const response = await fetch(url);
 
     if (!response.ok) {
         const errorBody = await response.json().catch((err) => err);
@@ -38,6 +37,7 @@ export async function fetcher<T>(
     return response.json();
 }
 
+// Function to fetch all the characters
 export async function getAllCharacters(): Promise<Character[]> {
     const results: Character[] = [];
     let next: string | null = "/character";

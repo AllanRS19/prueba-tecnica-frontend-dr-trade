@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { getFavorites } from "@/lib/utils";
 import { fetcher } from "@/lib/api";
 import NoResults from "@/components/NoResults";
-import FavoritesSkeleton from "./FavoritesSkeleton";
+import FavoritesSkeleton from "./skeletons/FavoritesSkeleton";
 import CharacterCard from "./shared/CharacterCard";
 import FetchError from "./FetchError";
 

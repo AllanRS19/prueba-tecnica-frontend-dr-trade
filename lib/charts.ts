@@ -1,3 +1,5 @@
+// The function groups the data by a specific property
+// and counts the amount that belong to each group
 export function groupBy<T>(
     data: T[],
     key: (item: T) => string
@@ -15,6 +17,8 @@ export function groupBy<T>(
     }));
 }
 
+// This function sorts the data by highest value
+// and selects up to N top items and the rest is sent to other
 export function getTopN(data: ChartDataItem[], limit = 5) {
     const sorted = [...data].sort((a, b) => b.value - a.value);
 
@@ -30,13 +34,16 @@ export function getTopN(data: ChartDataItem[], limit = 5) {
     return top;
 }
 
-// Specific charts
+// This function groups characters by their status
+// Since the API shows "unknown" in lowercase, unlike "Alive" or "Dead",
+// We need to normalize it, so it matches the format of the other two
 export function getStatusData(characters: Character[]) {
     return groupBy(characters, (c) =>
         c.status === "unknown" ? "Unknown" : c.status
     );
 }
 
+// Groups characters by species and keeps only the top 5 species
 export function getSpeciesData(characters: Character[]) {
     return getTopN(groupBy(characters, (c) => c.species));
 }

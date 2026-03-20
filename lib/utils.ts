@@ -6,6 +6,8 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const ELLIPSIS = 'ellipsis' as const;
+
+// Helper function to build the numbers used for the pagination
 export const buildPageNumbers = (
     currentPage: number,
     totalPages: number,
@@ -43,6 +45,7 @@ export const buildPageNumbers = (
     return pages;
 };
 
+// Get the favorites from the localStorage
 export const getFavorites = (): number[] => {
 
     if (typeof window === "undefined") return [];
@@ -51,6 +54,7 @@ export const getFavorites = (): number[] => {
     return data ? JSON.parse(data) : [];
 };
 
+// Either add or remove a favorite from the localStorage
 export const toggleFavorite = (id: number): number[] => {
     const favorites = getFavorites();
 
@@ -70,6 +74,7 @@ export const toggleFavorite = (id: number): number[] => {
     return updated;
 };
 
+// Check if a specific character is already in favorites
 export const isFavorite = (id: number): boolean => {
     return getFavorites().includes(id);
 };
