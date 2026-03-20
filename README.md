@@ -86,7 +86,7 @@ Ventajas:
 
 ---
 
-### 5. Arquitectura modular
+### 5. Estructura adoptada
 
 Estructura adoptada:
 
