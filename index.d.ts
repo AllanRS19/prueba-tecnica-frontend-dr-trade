@@ -1,5 +1,10 @@
 type QueryParams = Record<string, string | undefined>;
 
+type ChartDataItem = {
+    name: string;
+    value: number;
+};
+
 interface Character {
     id: number;
     name: string;
