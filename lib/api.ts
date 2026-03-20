@@ -37,3 +37,22 @@ export async function fetcher<T>(
 
     return response.json();
 }
+
+export async function getAllCharacters(): Promise<Character[]> {
+    const results: Character[] = [];
+    let next: string | null = "/character";
+
+    while (next) {
+        const res = await fetcher<ApiResponse<Character>>(next);
+
+        if (!res) break;
+
+        results.push(...res.results);
+
+        next = res.info?.next
+            ? res.info.next.replace(process.env.NEXT_PUBLIC_API_BASE_URL!, "")
+            : null;
+    }
+
+    return results;
+}
