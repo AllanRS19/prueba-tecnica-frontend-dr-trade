@@ -5,8 +5,8 @@
 ### 1. Clonar el repositorio
 
 ```bash
-git clone <repo-url>
-cd <project-folder>
+git clone https://github.com/AllanRS19/prueba-tecnica-frontend-dr-trade.git
+cd prueba-tecnica-frontend-dr-trade.git
 ```
 
 ---
@@ -68,7 +68,7 @@ Decidí crear una función `fetcher` genérica, ya que estaría haciendo llamada
 
 ### 3. Manejo de paginación completa
 
-Implementé la paginación en la página de inicio para asegurar que la interfaz no se vea cargada, así como para optimizar la llamada a la API, ya que no se devolvería los 826 resultados al mismo tiempo.
+Implementé la paginación en la página de inicio para asegurar que la interfaz no se vea cargada, así como para optimizar la llamada a la API, ya que no se devolverían todos los resultados al mismo tiempo.
 
 ---
 
